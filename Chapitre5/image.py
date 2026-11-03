@@ -1,3 +1,6 @@
+# Developer: Hamdy Abou El Anein
+# Contact: hamdy.aea@protonmail.com
+from pathlib import Path
 import tkinter as tk
 
 # Créer une fenêtre Tkinter
@@ -8,7 +11,7 @@ canvas = tk.Canvas(window, width=500, height=500)
 canvas.pack()
 
 # Charger une image
-photo = tk.PhotoImage(file="github.gif")
+photo = tk.PhotoImage(file=str(Path(__file__).resolve().parent / "github.gif"))
 
 # Dessiner l'image
 image = canvas.create_image(0, 0, image=photo, anchor=tk.NW)

@@ -1,3 +1,6 @@
+# Developer: Hamdy Abou El Anein
+# Contact: hamdy.aea@protonmail.com
+from pathlib import Path
 import tkinter as tk
 from PIL import Image, ImageTk
 # pip install pillow
@@ -5,7 +8,7 @@ from PIL import Image, ImageTk
 root = tk.Tk()
 
 # Charger l'image
-image = Image.open("python.png")
+image = Image.open(str(Path(__file__).resolve().parent / "python.png"))
 
 # Créer un objet PhotoImage à partir de l'image
 photo = ImageTk.PhotoImage(image)

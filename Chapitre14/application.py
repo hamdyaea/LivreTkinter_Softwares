@@ -1,3 +1,5 @@
+# Developer: Hamdy Abou El Anein
+# Contact: hamdy.aea@protonmail.com
 import tkinter as tk
 
 class TaskList:
@@ -5,6 +7,7 @@ class TaskList:
         self.master = master
         self.master.title("Liste de tâches")
         self.tasks = []
+        self.selected_task = None
         self.create_widgets()
     
     def create_widgets(self):
@@ -42,7 +45,7 @@ class TaskList:
         self.scrollbar.config(command=self.task_list.yview)
     
     def add_task(self, event=None):
-        task = self.task_entry.get()
+        task = self.task_entry.get().strip()
         if task != "":
             self.tasks.append(task)
             self.task_list.insert(tk.END, task)
@@ -56,6 +59,7 @@ class TaskList:
             self.selected_task = None
     
     def delete_task(self):
+        self.select_task()
         if self.selected_task is not None:
             self.task_list.delete(self.selected_task)
             del self.tasks[self.selected_task]
